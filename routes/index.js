@@ -6,11 +6,11 @@ marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
   tables: true,
-  breaks: true,
-  pedantic: true,
-  sanitize: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
   smartLists: true,
-  smartypants: true
+  smartypants: false
 });
 
 var router = express.Router();
