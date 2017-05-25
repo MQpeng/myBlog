@@ -1,0 +1,67 @@
+body {
+  padding: 0px;
+  margin:0px;
+  height: 100%;
+  width: 100%;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+}
+.layout-all{
+  position: relative;
+  height: 100%;
+}
+
+.layout-left{
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 80%;
+  background-color: #fa0;
+  border: 1px solid #800;
+  cursor: pointer;
+}
+
+.layout-right{
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 20%;
+  background-color: #fed;
+  overflow-y: scroll;
+}
+
+.right-content{
+  padding: 5px;
+}
+
+.left-choose-menu{
+  width: 100%;
+  min-height: 30px;
+  padding: 5px;
+  border-bottom: 1px solid #f00;
+  color: #885103;
+}
+
+.left-choose-menu:hover{
+  background: #800;
+}
+.left-choose-menu-layout{
+  width: 100%;
+  height: auto;
+}
+
+.left-choose-menu-file{
+  margin-left: 10px;
+  padding: 5px;
+  border-bottom: 1px solid #f00;
+  overflow: hidden;
+  font-size: 16px;
+  color: #888;
+}
+.left-choose-menu-file:hover{
+  background: #800;
+}
