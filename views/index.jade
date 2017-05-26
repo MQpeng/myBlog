@@ -2,12 +2,13 @@ extends layout
 
 block content
   div(class="layout-all")
+    div(id="layout-progress")
     div(class="layout-left fit-height")
       each dir in files
         div(class="left-choose-menu" id="#{dir.id}")= dir.name
         div(class="left-choose-menu-layout file-#{dir.id}")
           each file in dir.files
             div(class="left-choose-menu-file" id="#{file.id}")= file.name
-    div(class="layout-right fit-height")
+    div(class="layout-right fit-height" id="layout-right")
       div(class="right-button")
       div(class="right-content")!= mdContent

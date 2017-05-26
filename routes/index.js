@@ -63,7 +63,7 @@ router.get('/test', function(req, res, next) {
   console.log(newPath);
   var mdFile = fs.readFileSync(newPath, "utf-8");
   var html = marked(mdFile);
-  console.log(html);
+  // console.log(html);
   res.render('index', {
     files: files,
     mdContent: html
