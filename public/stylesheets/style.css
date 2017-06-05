@@ -42,7 +42,8 @@ body {
   background-color: #fed;
   overflow-y: scroll;
   word-wrap: break-word;
-  word-break: normal; 
+  word-break: normal;
+  -webkit-overflow-scrolling: touch;
 }
 
 .right-content{
