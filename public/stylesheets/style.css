@@ -41,6 +41,8 @@ body {
   left: 20%;
   background-color: #fed;
   overflow-y: scroll;
+  word-wrap: break-word;
+  word-break: normal; 
 }
 
 .right-content{
