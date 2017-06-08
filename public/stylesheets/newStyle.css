@@ -72,6 +72,49 @@ body{
   color:#aaaaaa;
 }
 
+.sub-nav .social{
+  margin-bottom: 10px;
+}
+
+.sub-nav .social .social-email{
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  margin-right: 15px;
+  cursor:pointer;
+}
+
+.sub-nav .social .social-email:hover{
+  text-shadow: 0 1px #666;
+  border: 1px solid #ccc;
+}
+
+.sub-nav .social .social-qq{
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  margin-right: 15px;
+  cursor:pointer;
+}
+
+.sub-nav .social .social-qq:hover{
+  text-shadow: 0 1px #666;
+  border: 1px solid #ccc;
+}
+
+.sub-nav .social .social-wechat{
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  margin-right: 15px;
+  cursor:pointer;
+}
+
+.sub-nav .social .social-wechat:hover{
+  text-shadow: 0 1px #666;
+  border: 1px solid #ccc;
+}
+
 .layout-right{
   text-align: left;
   height: 100%;
