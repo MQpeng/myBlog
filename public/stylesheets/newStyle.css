@@ -1,0 +1,137 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.layout-left{
+  height: 100%;
+  overflow: hidden;
+  background: #f00;
+  width: 270px;
+  padding-left: 50px;
+  line-height: 30px;
+  float: left;
+  color: #efefef;
+  background-image: url(https://st.imququ.com/static/img/blog/left-bg2.jpg);
+  background-size: cover;
+}
+
+.layout-left h1 a{
+  cursor: pointer;
+  color: #efefef;
+  text-shadow: 0 1px #666;
+  transition: color .3s;
+}
+
+.layout-left h1 a:hover{
+  text-decoration: none;
+  color:#aaaaaa;
+}
+
+.layout-left p{
+  color: #ccc;
+}
+
+.head-img{
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.head-img a{
+  background-image: url(http://ww3.sinaimg.cn/large/006HJ39wgy1fgdmpgvcqkj3074074gll.jpg);
+  background-size: 100% 100%;
+  border-radius: 50%;
+  display: block;
+  height: 160px;
+  margin: 15px 0 20px -10px;
+  width: 160px;
+}
+
+.main-nav{
+  padding: 0px;
+  margin-top: 15px;
+}
+
+.main-nav .menu-list{
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.main-nav .menu-list li a{
+  cursor: pointer;
+  color: #efefef;
+  text-shadow: 0 1px #666;
+  transition: color .3s;
+}
+
+.main-nav .menu-list li a:hover{
+  text-decoration: none;
+  color:#aaaaaa;
+}
+
+.layout-right{
+  text-align: left;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-left: 270px;
+  padding: 0 70px 0 40px;
+}
+
+/*content*/
+.layout-right .content .article-container{
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #fff;
+  padding: 30px 0;
+}
+
+.layout-right .content .article-container .meta{
+  color: #555;
+  float: right;
+  font-size: .9em;
+  line-height: 2;
+  position: relative;
+  text-align: right;
+  width: auto;
+}
+
+.layout-right .content .article-container .article-title{
+  font-size: 2em;
+  font-weight: 300;
+  line-height: 35px;
+  margin-bottom: 25px;
+  margin-top: 0px;
+}
+
+.layout-right .content .article-container .article-title a{
+  color: #333;
+}
+
+.layout-right .content .article-container .article-title a:hover{
+  color: #2479CC;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.layout-right .content .article-container .continue-read p{
+  margin-top: 15px;
+  font-size: 1.2em;
+  line-height: 1.7em;
+}
+
+
+
+
+@media screen and (max-width: 1024px) {
+  .layout-left{
+    width: 210px;
+  }
+
+  .layout-right{
+    margin-left: 210px;
+  }
+}

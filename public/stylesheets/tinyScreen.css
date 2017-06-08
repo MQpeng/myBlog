@@ -1,0 +1,56 @@
+.layout-left{
+  width: 100%;
+  height: 186px;
+  text-align: center;
+  float: none;
+}
+
+.head-img a{
+  height: 56px;
+  left: 12px;
+  margin: 0;
+  position: absolute;
+  top: 12px;
+  width: 56px
+}
+
+.layout-left h1{
+  float: none;
+  font-weight: 300;
+  font-size: 30px;
+}
+
+.layout-right{
+  padding: 0 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.main-nav{
+  margin-top: 10px;
+}
+
+.main-nav .menu-list li{
+  display: inline;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.layout-right{
+  float: none;
+  margin: 0px;
+}
+
+.layout-right .content .article-container .meta{
+  float: none;
+}
+
+.layout-right .content .article-container .meta .date{
+  margin-right: 30px;
+  display: inline;
+}
+
+.layout-right .content .article-container .meta .comments{
+  display: inline;
+}
