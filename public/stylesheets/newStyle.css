@@ -8,7 +8,6 @@ body{
 .layout-left{
   height: 100%;
   overflow: hidden;
-  background: #f00;
   width: 270px;
   padding-left: 50px;
   line-height: 30px;
