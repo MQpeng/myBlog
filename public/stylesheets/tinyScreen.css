@@ -1,3 +1,9 @@
+body{
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
 .layout-left{
   width: 100%;
   height: 186px;
@@ -23,9 +29,10 @@
 
 .layout-right{
   padding: 0 10px;
+  height: auto;
+  /*overflow-y: auto;
   overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;*/
 }
 
 .main-nav{
