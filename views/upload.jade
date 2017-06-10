@@ -1,0 +1,36 @@
+doctype html
+html(style="height:100%;")
+  link(rel="stylesheet", href="/stylesheets/upload.css" type="text/css")
+  link(rel="stylesheet", href="/bootstrap/css/bootstrap.min.css")
+  link(rel="stylesheet", href="/bootstrap/css/bootstrap-theme.min.css")
+  link(rel="stylesheet",href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css")
+  script(src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js")
+  script hljs.initHighlightingOnLoad();
+  script(src="/jquery/jquery-1.11.1.min.js")
+  script(src="/bootstrap/js/bootstrap.min.js")
+  script(src="/javascripts/upload.js")
+  body
+    block content
+      div#show-message(class="alert alert-info" role="alert") 文件上传成功
+      div#left-form
+        div.row
+          span.col-sm-6#file-name
+          span.col-sm-6#file-size
+        div.row
+          label(for="inputTitle" class="col-sm-2 control-label") 标题
+          div.col-sm-10
+            input(type="text" class="form-control" id="inputTitle" placeholder="标题")
+        div.row
+          label(for="inputDetail" class="col-sm-2 control-label") 简介
+          div.col-sm-10
+            textarea(type="text" rows="5" class="form-control" id="inputDetail" placeholder="简介")
+        div.row
+          label(for="inputTime" class="col-sm-2 control-label") 时间
+          div.col-sm-10
+            input(type="text" class="form-control" id="inputTime" placeholder="时间")
+        div.row
+          div.col-sm-6
+            button(class="btn btn-info" type="submit" id="submitBtn") 确定
+          div.col-sm-6
+            button(class="btn btn-primary" type="submit" id="cancelBtn") 取消
+      div#uploadZone 将markdown文章拖拽至此处

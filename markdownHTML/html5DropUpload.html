@@ -1,0 +1,77 @@
+<h2 id="html5-drag-drop">html5的drag和drop</h2>
+<ul>
+<li>drag和drop基本介绍</li>
+</ul>
+<blockquote>
+<ul>
+<li>drag：控件一开始拖的时候进行响应</li>
+<li>drop：拖拽中的控件放下的时候进行响应</li>
+<li>具体可参考：<a href="http://www.w3school.com.cn/html5/html_5_draganddrop.asp">http://www.w3school.com.cn/html5/html_5_draganddrop.asp</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>html5实现拖拽响应</li>
+</ul>
+<blockquote>
+<p>拖拽上传，我们拖拽的文件，并不需要它在拖拽前响应事件，只需要在拖拽后响应异步上传的事件，也就是实现drop方法，并在drop方法中将文件POST出去</p>
+</blockquote>
+<pre><code class="lang-HTML">  &lt;div class=&#39;dropzone&#39;&gt;You can drop markdown file anywhere to upload &lt;/div&gt;
+
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    /* 给控件绑定drop事件 */
+    $(&#39;#dropzone&#39;).on(&#39;drop&#39;, function(event) {
+      /* 获取文件 */
+      var file = event.originalEvent.dataTransfer.files[0];
+      /* 采用FormData接口 相关信息：自行查询*/
+      var formData = new FormData();
+      formData.append(&#39;file&#39;, file);
+
+      $.ajax(&#39;/upload&#39;, {
+        method: &#39;POST&#39;,
+        contentType: false,
+        processData: false,
+        data: formData,
+        error: function(xhr, error) {
+          console.log(&#39;upload failed&#39;);
+        },
+        success: function(response) {
+          console.log(&#39;upload success&#39;);
+        }
+      });
+
+      return false;
+    })；
+  &lt;/script&gt;
+</code></pre>
+<h2 id="express-">express路由</h2>
+<ul>
+<li>构建响应POST方法的路由</li>
+</ul>
+<pre><code class="lang-javascript">  var express = require(&#39;express&#39;);
+  var multipart = require(&#39;connect-multiparty&#39;);
+  var multipartMiddleware = multipart({
+    uploadDir: &quot;./upload_tmp&quot;
+  });
+  /* express 4.0后req.files不是默认参数，需要添加 connect-multiparty等 ， 具体可看官网：http://www.expressjs.com.cn/4x/api.html#req*/
+  var router = express.Router();
+
+  /* 该router响应的是 &#39;/&#39; 页面所有的POST，应对应上面html展示的页面，才会响应 ajax 中的upload  */
+  router.post(&#39;/&#39;, multipartMiddleware, function(req, res) {
+    var file = req.files.file;
+    var fileName = file.originalFilename;
+    var fileTmpPath = file.path;
+    if (file.ws.closed == true) {
+      try {
+        var newPath = path.join(mdPath, fileName);
+        fs.renameSync(fileTmpPath, newPath);
+      } catch (err) {
+        res.status(err.status || 500);
+        res.render(&#39;error&#39;, {
+          message: err.message || &quot;server error&quot;,
+          error: err
+        });
+      }
+      res.send(newPath);
+    }
+  });
+</code></pre>

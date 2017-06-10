@@ -1,72 +1,42 @@
 var express = require('express');
 var fs = require("fs");
-var marked = require('marked');
-
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false
-});
-
+var Parse = require('parse/node');
 var router = express.Router();
 
-var path = 'markdown';
-var search = [];
-var files = [];
+var htmlPath = 'markdownHTML';
+Parse.initialize("freedomshaoId");
+Parse.serverURL = 'http://localhost:2337/parse';
+var Article = Parse.Object.extend("Articles");
+
+// 递归解决异步无法渲染的问题
+var query = new Parse.Query(Article);
+query.find().then((data) => {
+  // console.log("data", data)
+  var articles = [];
+  data.forEach(article => {
+    articles.push(article.toJSON())
+  })
+  // console.log('articles', articles)
+  return router.get('/', function(req, res, next) {
+    res.render('index', {
+      articles: articles
+    })
+  })
+})
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  console.log(path);
-  var dirs = fs.readdirSync(path);
+// router.get('/', function(req, res, next) {
+//   res.render('index')
+// });
 
-  for (let i = 0; i < dirs.length; i++) {
-    let dir = {};
-    let searchDir = {
-      files: []
-    };
-    dir.name = dirs[i];
-    dir.id = i;
-    searchDir.name = dirs[i];
-    var temps = fs.readdirSync(path + '/' + dirs[i]);
-    var arrays = [];
-    for (let j = 0; j < temps.length; j++) {
-      let temp = {};
-      temp.name = temps[j];
-      temp.id = j;
-      arrays[j] = temp;
-      searchDir.files[j] = temps[j];
-    }
-    dir.files = arrays;
-    files[i] = dir;
-    search[i] = searchDir;
-  }
 
-  // console.log(search);
+router.get('/test/:file', function(req, res, next) {
 
-  var mdFile = fs.readFileSync(path + '/' + search[0].name + '/' + search[0].files[0], "utf-8");
-  var html = marked(mdFile);
-  res.render('index', {
-    files: files,
-    mdContent: html
-  });
-
-});
-
-router.get('/test', function(req, res, next) {
-  var dirId = req.query.id;
-  var fileId = req.query.fileId;
-  var newPath = path + '/' + search[dirId].name + '/' + search[dirId].files[fileId];
-  console.log(newPath);
-  var mdFile = fs.readFileSync(newPath, "utf-8");
-  var html = marked(mdFile);
+  var newPath = htmlPath + '/' + req.param('file');
+  var html = fs.readFileSync(newPath, "utf-8");
   // console.log(html);
   res.render('index', {
-    files: files,
-    mdContent: html
+    mdContent: html,
+    detail: true
   })
 });
 

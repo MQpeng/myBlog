@@ -1,0 +1,50 @@
+<h2 id="markdown-reader">markdown-reader</h2>
+<ul>
+<li>项目名称：markdown-reader</li>
+<li>项目功能：拖拽上传markdown文件，自动转换成html</li>
+<li>项目地址：<a href="https://github.com/hjzheng/markdown-reader">https://github.com/hjzheng/markdown-reader</a></li>
+<li>分析时间：2017/5/24</li>
+</ul>
+<h2 id="-">依赖的库</h2>
+<ul>
+<li><p>marked</p>
+<ul>
+<li>将markdown文件转换成html</li>
+</ul>
+</li>
+<li><p>codemirror</p>
+<ul>
+<li>代码编辑框样式，很友好的代码页面编辑</li>
+<li>引入codemirror相关css和js既可以使用</li>
+<li>设置textarea的id为editor,即可得到codemirror的效果</li>
+</ul>
+</li>
+</ul>
+<h2 id="-">功能实现</h2>
+<ul>
+<li>拖拽上传</li>
+</ul>
+<blockquote>
+<p>采用了html5的drag和drop</p>
+<ol>
+<li>响应控件的drop方法：通过event.originalEvent.dataTransfer.files[0]获取所拖拽的文件</li>
+<li>创建FormData对象，并实现ajax的POST请求</li>
+<li>express的路由响应ajax的POST请求，并在上传成功后返回文件的地址：res.send(newPath);</li>
+<li>客户端响应success方法，并得到传来的newPath,实现相关功能</li>
+</ol>
+</blockquote>
+<h2 id="-">精彩部分</h2>
+<ul>
+<li>settings.properties</li>
+</ul>
+<blockquote>
+<p>文件包含界面的一些设置参数，可以通过properties-parser进行修改。
+值的类型很简单：变量=值</p>
+</blockquote>
+<ul>
+<li>connect-multiparty</li>
+</ul>
+<blockquote>
+<p>node的后台上传模块
+在expres 4.0 中，req.files不再是默认参数，需要使用multipart-handing中间件，才能使用req.files</p>
+</blockquote>

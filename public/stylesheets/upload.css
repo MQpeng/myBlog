@@ -1,0 +1,44 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+#show-message{
+  
+}
+
+#left-form{
+  width: 50%;
+  height: 100%;
+  float: left;
+  border-color: #ccc;
+  border-style: dashed;
+  border-width: medium;
+  border-right: none;
+}
+
+#left-form .row{
+  padding:  10px 10px 50px 10px;
+}
+
+textarea{
+  resize: none;
+}
+
+#uploadZone{
+  float: right;
+  width: 50%;
+  height: 100%;
+  border: 1px dashed #ccc;
+  border-width: medium;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 60px;
+  color: #ccc;
+}
+
+#uploadZone:hover{
+  border-color: #888;
+}
