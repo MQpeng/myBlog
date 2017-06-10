@@ -24,7 +24,7 @@ body{
 .layout-left h1{
   float: none;
   font-weight: 300;
-  font-size: 30px;
+  font-size: 2em;
 }
 
 .layout-right{
