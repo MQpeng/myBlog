@@ -35,6 +35,10 @@ body{
   -webkit-overflow-scrolling: touch;*/
 }
 
+.layout-right .content{
+  padding: 10px 0px 10px 0px;
+}
+
 .main-nav{
   margin-top: 10px;
 }
