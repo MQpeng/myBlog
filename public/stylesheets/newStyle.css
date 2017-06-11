@@ -143,19 +143,19 @@ body{
 }
 
 .layout-right .content h1{
-  font-size: 2em;
-}
-
-.layout-right .content h2{
-  font-size: 1.8em;
-}
-
-.layout-right .content h3{
   font-size: 1.6em;
 }
 
+.layout-right .content h2{
+  font-size: 1.4em;
+}
+
+.layout-right .content h3{
+  font-size: 1.3em;
+}
+
 .layout-right .content h4{
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .layout-right .content .article-container{
@@ -175,7 +175,6 @@ body{
 }
 
 .layout-right .content .article-container .article-title{
-  font-size: 1.6em;
   font-weight: 300;
   line-height: 35px;
   margin-bottom: 1%;
