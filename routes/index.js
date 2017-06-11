@@ -20,6 +20,7 @@ query.find().then((data) => {
   return router.get('/', function(req, res, next) {
     var query = new Parse.Query(Article);
     query.find().then((data) => {
+      articles = [];
       data.forEach(article => {
         articles.push(article.toJSON())
       });
