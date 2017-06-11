@@ -10,6 +10,8 @@ body{
   text-align: center;
   float: none;
   padding: 0px;
+  background-image:none;
+  background: #027484;
 }
 
 .head-img a{
@@ -18,7 +20,7 @@ body{
   margin: 0;
   position: absolute;
   top: 12px;
-  width: 56px
+  width: 56px;
 }
 
 .layout-left h1{
