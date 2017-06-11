@@ -11,6 +11,7 @@ var Article = Parse.Object.extend("Articles");
 // 递归解决异步无法渲染的问题
 var query = new Parse.Query(Article);
 var articles = [];
+query.addDescending("createAt");
 query.find().then((data) => {
   // console.log("data", data)
   data.forEach(article => {
@@ -19,11 +20,14 @@ query.find().then((data) => {
   // console.log('articles', articles)
   return router.get('/', function(req, res, next) {
     var query = new Parse.Query(Article);
+    query.addDescending("createAt");
     query.find().then((data) => {
-      articles = [];
-      data.forEach(article => {
-        articles.push(article.toJSON())
-      });
+      if (articles.length != data.length) {
+        articles = [];
+        data.forEach(article => {
+          articles.push(article.toJSON())
+        });
+      }
     });
     res.render('index', {
       articles: articles
