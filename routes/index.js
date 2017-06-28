@@ -1,12 +1,14 @@
 var express = require('express');
 var fs = require("fs");
 var Parse = require('parse/node');
+var iconv = require('iconv-lite');
 var router = express.Router();
 
 var htmlPath = 'markdownHTML';
 Parse.initialize("freedomshaoId");
 Parse.serverURL = 'http://localhost:2337/parse';
 var Article = Parse.Object.extend("Articles");
+
 
 // 递归解决异步无法渲染的问题
 var query = new Parse.Query(Article);
@@ -33,9 +35,6 @@ query.addDescending("createdAt").find().then((data) => {
   })
 })
 /* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index')
-// });
 
 
 router.get('/test/:file', function(req, res, next) {
@@ -48,5 +47,6 @@ router.get('/test/:file', function(req, res, next) {
     detail: true
   })
 });
+
 
 module.exports = router;

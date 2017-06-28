@@ -1,0 +1,73 @@
+extends layout
+
+block content
+  div(class="layout-left")
+    div.head-img
+      a(href="/")
+    h1 
+      a(href="/") John Pop
+    p 专注 WEB 端开发
+    nav.main-nav
+      ul.menu-list
+        li 
+          a(href="/") 首页
+        li 
+          a(href="/") 归档
+        li 
+          a(href="/") 标签
+        li 
+          a(href="/") 关于
+        li 
+          a(href="/") 友链
+        li 
+          a(href="/") 分享
+    nav.sub-nav
+      div.social
+        img.social-email(src="/images/email.png")
+        img.social-qq(src="/images/qq.png")
+        img.social-wechat(src="/images/wechat.png")
+  div(class="layout-right")
+    div.content
+      div.content-head
+        div.row
+          div.col-md-4
+            select.form-control(id="select-major")
+              option(value="0") 选择招生专业
+              each major in majorsOptions
+                option(value="#{major.options}")= major.options
+          div.col-md-4
+            select.form-control(id="select-depart")
+              option(value="0") 选择招生院校
+              each depart in departmentOptions
+                option(value="#{depart.options}")= depart.options
+          div.col-md-4
+            button(class="btn btn-default" id="search") 查询
+      div.content-tables(style="margin-top:25px;")
+        table(class="table table-hover")
+          tr(style="white-space: nowrap;")
+            th 姓名
+            th 性别
+            th 职称
+            th 所在专业
+            th 所在院校
+            th 研究方向
+            th 邮箱
+            th 官网详情
+          each teacher in teachers
+            tr
+              td
+                p.table-content= teacher.name
+              td
+                p.table-content= teacher.sex
+              td
+                p.table-content= teacher.situation
+              td
+                p.table-content= teacher.major
+              td
+                p.table-content= teacher.department
+              td
+                p.table-content= teacher.target
+              td
+                p.table-content= teacher.email
+              td 
+                a(href="#{teacher.url}") 官网详情
