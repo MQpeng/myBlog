@@ -21,6 +21,7 @@ $(document).ready(function() {
         },
         success: function(response) {
           console.log('upload success', response);
+
           window.location.href = './huanan';
         },
         dataType: false
