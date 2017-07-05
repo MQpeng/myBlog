@@ -8,7 +8,6 @@ var router = express.Router();
 var htmlPath = 'markdownHTML';
 var Article = Parse.Object.extend("Articles");
 
-
 // 递归解决异步无法渲染的问题
 var query = new Parse.Query(Article);
 var articles = [];
