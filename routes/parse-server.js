@@ -1,4 +1,5 @@
-var Parse = require('parse/node');
+var Global = require('./global');
+var Parse = Global.Parse;
 var express = require('express');
 var fs = require("fs");
 var marked = require('marked');
@@ -10,8 +11,6 @@ var multipartMiddleware = multipart({
   uploadDir: "./tempDir"
 });
 
-Parse.initialize("freedomshaoId");
-Parse.serverURL = 'http://localhost:2337/parse';
 var Article = Parse.Object.extend("Articles");
 
 marked.setOptions({

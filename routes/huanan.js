@@ -1,11 +1,9 @@
 var express = require('express');
 var fs = require("fs");
-var Parse = require('parse/node');
+var Global = require('./global');
+var Parse = Global.Parse;
 var iconv = require('iconv-lite');
 var router = express.Router();
-
-Parse.initialize("freedomshaoId");
-Parse.serverURL = 'http://localhost:2337/parse';
 
 var Teacher = Parse.Object.extend("Teacher");
 var majorsOptions = Parse.Object.extend("majorsOptions");
