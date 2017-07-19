@@ -1,11 +1,12 @@
+body{
+  -webkit-overflow-scrolling: touch;
+}
 
 .container{
   width: 95%;
   height: 100%;
   padding: 10px;
   overflow-x: hidden;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 
 .container img{
