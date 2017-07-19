@@ -1,0 +1,15 @@
+.container{
+  width: 95%;
+  height: 100%;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.container img{
+  overflow-x: hidden;
+  display: block;
+  width: 100%;
+  background-size: 100% 100%;
+}

@@ -34,7 +34,6 @@ query.addDescending("createdAt").find().then((data) => {
 })
 /* GET home page. */
 
-
 router.get('/test/:file', function(req, res, next) {
 
   var newPath = htmlPath + '/' + req.param('file');
@@ -44,6 +43,10 @@ router.get('/test/:file', function(req, res, next) {
     mdContent: html,
     detail: true
   })
+});
+
+router.get('/lizery', function(req, res, next) {
+  res.render('lizery',{hostPath:"http://mall.bj520.com"})
 });
 
 
