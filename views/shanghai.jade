@@ -29,7 +29,10 @@ block content
   div(class="layout-right")
     div.content
       div.content-head 
-        h1 上海大学机电工程学院
+        h3 上海大学机电工程学院
+        div(class="btn-group" role="group")
+          a(href="/shanghai" class="btn btn-default" ) 教授名录
+          a(href="/shanghai/teachers" class="btn btn-default" ) 教师名录
       div.content-tables(style="margin-top:25px;")
         table(class="table table-hover")
           tr(style="white-space: nowrap;")
@@ -41,7 +44,7 @@ block content
             th 研究领域
             th 学术兼职
             th 官网详情
-          each teacher in teachers
+          each teacher in datas
             tr
               td
                 p.table-content

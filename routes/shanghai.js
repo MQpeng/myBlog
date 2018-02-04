@@ -8,18 +8,25 @@ var router = express.Router();
 
 var Teacher = Parse.Object.extend("ShangHai");
 
-var queryTeacher = new Parse.Query(Teacher);
+var professor = [];
 var teachers = [];
-
-queryTeacher.addDescending("createdAt").limit(100).find().then((data) => {
+var queryTeacher = new Parse.Query(Teacher);
+queryTeacher.descending("createdAt").descending("teacherJob").limit(500).find().then((data) => {
   data.forEach(value => {
-    teachers.push(value.toJSON())
+    if(value.get('tag')){
+      professor.push(value.toJSON())
+    }else{
+      teachers.push(value.toJSON())
+    }
   })
 }).then(data => {
   // var test = [1,2,3,4,5,6]
-  console.log("完成初始化",teachers.length)
-  return router.get('/', function(req, res, next) {
-    res.render('shanghai', {teachers:teachers})
+  console.log("完成初始化",teachers.length+'/'+professor.length)
+  router.get('/teachers', function(req, res, next) {
+    res.render('shanghai', {datas:teachers})
+  });
+  router.get('/', function(req, res, next) {
+    res.render('shanghai', {datas:professor})
   });
 })
 
