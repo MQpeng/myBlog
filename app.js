@@ -9,7 +9,7 @@ var index = require('./routes/index');
 var parseServer = require('./routes/parse-server');
 var huanan = require('./routes/huanan');
 var users = require('./routes/users');
-
+var shanghai = require('./routes/shanghai')
 var app = express();
 
 // view engine setup
@@ -30,7 +30,7 @@ app.use('/', index);
 app.use('/', parseServer);
 app.use('/huanan', huanan);
 app.use('/users', users);
-
+app.use('/shanghai', shanghai);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -1,0 +1,61 @@
+extends layout
+
+block content
+  div(class="layout-left")
+    div.head-img
+      a(href="/")
+    h1 
+      a(href="/") John Pop
+    p 专注 WEB 端开发
+    nav.main-nav
+      ul.menu-list
+        li 
+          a(href="/") 首页
+        li 
+          a(href="/") 归档
+        li 
+          a(href="/") 标签
+        li 
+          a(href="/") 关于
+        li 
+          a(href="/") 友链
+        li 
+          a(href="/") 分享
+    nav.sub-nav
+      div.social
+        img.social-email(src="/images/email.png")
+        img.social-qq(src="/images/qq.png")
+        img.social-wechat(src="/images/wechat.png")
+  div(class="layout-right")
+    div.content
+      div.content-tables(style="margin-top:25px;")
+        table(class="table table-hover")
+          tr(style="white-space: nowrap;")
+            th 风采图
+            th 姓名
+            th(style="width:150px;") 部门
+            th 职称
+            th 邮箱
+            th 研究领域
+            th 学术兼职
+            th 官网详情
+          each teacher in teachers
+            tr
+              td
+                p.table-content
+                  a(href="#" class="thumbnail")
+                    img(src="#{'http://my.shu.edu.cn/'+teacher.img_src}")
+              td
+                p.table-content= teacher.teacherName
+              td
+                p(style="width:150px;").table-content= teacher.teacherDepart
+              td
+                p.table-content= teacher.teacherJob
+              td
+                p.table-content= teacher.teacherEmail
+              td
+                p(style="max-height: 100px;overflow-y: auto;").table-content= teacher.teacherResearchArea
+              td
+                p(style="max-height: 100px;overflow-y: auto;").table-content= teacher.teacherPartTimeJob
+              td 
+                a(href="#{teacher.baseURL}") 官网详情
