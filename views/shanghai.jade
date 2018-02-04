@@ -43,6 +43,7 @@ block content
             th 邮箱
             th 研究领域
             th 学术兼职
+            th 个人简介
             th 官网详情
           each teacher in datas
             tr
@@ -62,5 +63,7 @@ block content
                 p(style="max-height: 100px;overflow-y: auto;").table-content= teacher.teacherResearchArea
               td
                 p(style="max-height: 100px;overflow-y: auto;").table-content= teacher.teacherPartTimeJob
+              td
+                p(style="max-height: 100px;overflow-y: auto;").table-content= teacher.teacherIntroduction
               td 
                 a(href="#{teacher.baseURL}") 官网详情
