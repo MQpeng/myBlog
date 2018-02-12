@@ -67,6 +67,7 @@ function saveMarkdown(newPath, fileName, article) {
   object.set("html", fileName + ".html")
   object.save().then(data => {
     console.log("save success", data)
+    Global.unshiftArticles(data.toJSON())
   }).catch(err => {
     console.log("Error save:", err)
   })

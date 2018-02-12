@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var formData = new FormData();
   $('#submitBtn').on('click', function(event) {
-
     var title = $('#inputTitle').val();
     var detail = $('#inputDetail').val();
     var time = $('#inputTime').val();
@@ -17,9 +16,11 @@ $(document).ready(function() {
       data: formData,
       error: function(xhr, error) {
         console.log('upload failed');
+        formData = new FormData();
       },
       success: function(response) {
         console.log('upload success', response);
+        formData = new FormData();
       }
     });
   })
