@@ -10,6 +10,8 @@ html(style="height:100%;")
   body
     audio.music(loop="loop" volumevalue="0.2" autoplay="autoplay")
       source(src="/music/music.mp3")
+    div(style="margin-bottom: 1rem;")
+      a(style="font-size: 2rem;" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1002308239&site=qq&menu=yes") 联系qq:1002308239
     - for(var i=0; i<7; i++)
       div.row(style="border-bottom: 2px solid #ccc;margin-bottom: 1rem;")
         - for(var j=0; j<3; j++)
