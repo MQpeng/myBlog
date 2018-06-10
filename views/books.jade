@@ -1,0 +1,19 @@
+doctype html
+html(style="height:100%;")
+  head
+    title A story about Lizery
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    script(src="/jquery/jquery-1.11.1.min.js")
+    script(src="/bootstrap/js/bootstrap.min.js")
+    link(rel="stylesheet", href="/bootstrap/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/bootstrap/css/bootstrap-theme.min.css")
+  body
+    audio.music(loop="loop" volumevalue="0.2" autoplay="autoplay")
+      source(src="/music/music.mp3")
+    - for(var i=0; i<7; i++)
+      div.row(style="border-bottom: 2px solid #ccc;margin-bottom: 1rem;")
+        - for(var j=0; j<3; j++)
+          div(class="col-xs-6 col-md-3")
+            a(href="#" class="thumbnail")
+              div #{names[i*3+j]}
+              img(src="#{srcs[i*3+j]}")
